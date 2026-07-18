@@ -175,7 +175,6 @@ This dataset is the single source of truth for node/edge generation across all 4
 
 ## 8. Success Criteria (for challenge submission)
 - All screens visually consistent (same color system, shape language, shadow style)
-- Clear "smart use of Base44/Wonder" demonstrated through interactive drag/tap mechanics, not just static forms
 - Originality: no competing app currently gamifies Jabodetabek transit connectivity specifically
 - Playable end-to-end MVP: onboarding → Unit 1 (KRL) → at least 1 of each of the 4 mechanics → result screen
 - At least one AI Mentor insight moment demoed live (hub insight after a completed challenge), showing the explanation is grounded in the actual graph data, not a canned string
