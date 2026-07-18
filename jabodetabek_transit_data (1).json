@@ -1,0 +1,1994 @@
+{
+  "meta": {
+    "source": "Peta Integrasi Transportasi Umum Jakarta (FDTJ, 2026-06)",
+    "note": "Full operational network extracted from official map: KRL Commuter Line, MRT Jakarta, LRT Jabodebek, LRT Jakarta, and all 14 TransJakarta BRT corridors with their stop sequences. Express/variant sub-routes (e.g. 3F, 6A, 6B, 9C, 10H, 13B) are listed separately as they share most stops with their base corridor. Planned/under-construction lines (MRT Fase 2A/2B/4/East-West, LRT Jakarta Fase 1B-3B) and intercity services (Whoosh HSR, KA Lokal Walahar/Pangrango/Merak) are excluded as they are not operational or out of scope for the urban network game.",
+    "modes": [
+      "KRL",
+      "MRT",
+      "LRT_JABODEBEK",
+      "LRT_JAKARTA",
+      "TRANSJAKARTA"
+    ]
+  },
+  "lines": [
+    {
+      "id": "MRT_NS",
+      "mode": "MRT",
+      "name": "MRT North-South Line",
+      "name_id": "MRT Lin Utara Selatan",
+      "color": "#00529B",
+      "stations": [
+        {
+          "code": "M01",
+          "name": "Lebak Bulus Grab"
+        },
+        {
+          "code": "M02",
+          "name": "Fatmawati"
+        },
+        {
+          "code": "M03",
+          "name": "Cipete Raya"
+        },
+        {
+          "code": "M04",
+          "name": "Haji Nawi"
+        },
+        {
+          "code": "M05",
+          "name": "Blok A"
+        },
+        {
+          "code": "M06",
+          "name": "Blok M BCA"
+        },
+        {
+          "code": "M07",
+          "name": "ASEAN"
+        },
+        {
+          "code": "M08",
+          "name": "Senayan Mastercard"
+        },
+        {
+          "code": "M09",
+          "name": "Istora Mandiri"
+        },
+        {
+          "code": "M10",
+          "name": "Bendungan Hilir"
+        },
+        {
+          "code": "M11",
+          "name": "Setiabudi Astra"
+        },
+        {
+          "code": "M12",
+          "name": "Dukuh Atas BNI",
+          "interchange": true
+        },
+        {
+          "code": "M13",
+          "name": "Bundaran HI Bank Jakarta"
+        }
+      ]
+    },
+    {
+      "id": "LRT_JKT_SOUTH",
+      "mode": "LRT_JAKARTA",
+      "name": "LRT Jakarta Southern Line",
+      "name_id": "LRT Jakarta Lin Selatan",
+      "color": "#8DC63F",
+      "stations": [
+        {
+          "code": "S01",
+          "name": "Pegangsaan Dua"
+        },
+        {
+          "code": "S02",
+          "name": "Boulevard Utara"
+        },
+        {
+          "code": "S03",
+          "name": "Boulevard Selatan"
+        },
+        {
+          "code": "S04",
+          "name": "Pulomas"
+        },
+        {
+          "code": "S05",
+          "name": "Equestrian"
+        },
+        {
+          "code": "S06",
+          "name": "Velodrome"
+        }
+      ]
+    },
+    {
+      "id": "LRT_JBDBK_CIBUBUR",
+      "mode": "LRT_JABODEBEK",
+      "name": "LRT Jabodebek Cibubur Line",
+      "name_id": "LRT Jabodebek Lin Cibubur",
+      "color": "#F5821F",
+      "stations": [
+        {
+          "code": "CB01",
+          "name": "Dukuh Atas BNI",
+          "interchange": true
+        },
+        {
+          "code": "CB02",
+          "name": "Setiabudi"
+        },
+        {
+          "code": "CB03",
+          "name": "Rasuna Said"
+        },
+        {
+          "code": "CB04",
+          "name": "Kuningan"
+        },
+        {
+          "code": "CB05",
+          "name": "Pancoran"
+        },
+        {
+          "code": "CB06",
+          "name": "Cikoko"
+        },
+        {
+          "code": "CB07",
+          "name": "Ciliwung"
+        },
+        {
+          "code": "CB08",
+          "name": "Cawang",
+          "interchange": true
+        },
+        {
+          "code": "CB09",
+          "name": "TMII"
+        },
+        {
+          "code": "CB10",
+          "name": "Kampung Rambutan"
+        },
+        {
+          "code": "CB11",
+          "name": "Ciracas"
+        },
+        {
+          "code": "CB12",
+          "name": "Harjamukti"
+        }
+      ]
+    },
+    {
+      "id": "LRT_JBDBK_BEKASI",
+      "mode": "LRT_JABODEBEK",
+      "name": "LRT Jabodebek Bekasi Line",
+      "name_id": "LRT Jabodebek Lin Bekasi",
+      "color": "#EC008C",
+      "stations": [
+        {
+          "code": "BK01",
+          "name": "Dukuh Atas BNI",
+          "interchange": true
+        },
+        {
+          "code": "BK02",
+          "name": "Setiabudi"
+        },
+        {
+          "code": "BK03",
+          "name": "Rasuna Said"
+        },
+        {
+          "code": "BK04",
+          "name": "Kuningan"
+        },
+        {
+          "code": "BK05",
+          "name": "Pancoran"
+        },
+        {
+          "code": "BK06",
+          "name": "Cikoko"
+        },
+        {
+          "code": "BK07",
+          "name": "Ciliwung"
+        },
+        {
+          "code": "BK08",
+          "name": "Cawang",
+          "interchange": true
+        },
+        {
+          "code": "BK09",
+          "name": "Halim"
+        },
+        {
+          "code": "BK10",
+          "name": "Jati Bening Baru"
+        },
+        {
+          "code": "BK11",
+          "name": "Cikunir 1"
+        },
+        {
+          "code": "BK12",
+          "name": "Cikunir 2"
+        },
+        {
+          "code": "BK13",
+          "name": "Bekasi Barat"
+        },
+        {
+          "code": "BK14",
+          "name": "Jati Mulya"
+        }
+      ]
+    },
+    {
+      "id": "KRL_BOGOR",
+      "mode": "KRL",
+      "name": "Bogor Line",
+      "name_id": "Lin Bogor",
+      "color": "#D0006F",
+      "stations": [
+        {
+          "code": "B01",
+          "name": "Jakarta Kota",
+          "interchange": true
+        },
+        {
+          "code": "B02",
+          "name": "Jayakarta"
+        },
+        {
+          "code": "B03",
+          "name": "Sawah Besar"
+        },
+        {
+          "code": "B04",
+          "name": "Juanda"
+        },
+        {
+          "code": "B05",
+          "name": "Gondangdia"
+        },
+        {
+          "code": "B06",
+          "name": "Cikini"
+        },
+        {
+          "code": "B07",
+          "name": "Manggarai",
+          "interchange": true
+        },
+        {
+          "code": "B08",
+          "name": "Tebet"
+        },
+        {
+          "code": "B09",
+          "name": "Cawang"
+        },
+        {
+          "code": "B10",
+          "name": "Duren Kalibata"
+        },
+        {
+          "code": "B11",
+          "name": "Pasar Minggu Baru"
+        },
+        {
+          "code": "B12",
+          "name": "Pasar Minggu"
+        },
+        {
+          "code": "B13",
+          "name": "Tanjung Barat"
+        },
+        {
+          "code": "B14",
+          "name": "Lenteng Agung"
+        },
+        {
+          "code": "B15",
+          "name": "Universitas Pancasila"
+        },
+        {
+          "code": "B16",
+          "name": "Universitas Indonesia"
+        },
+        {
+          "code": "B17",
+          "name": "Pondok Cina"
+        },
+        {
+          "code": "B18",
+          "name": "Depok Baru"
+        },
+        {
+          "code": "B19",
+          "name": "Depok"
+        },
+        {
+          "code": "B20",
+          "name": "Citayam"
+        },
+        {
+          "code": "B21",
+          "name": "Bojong Gede"
+        },
+        {
+          "code": "B22",
+          "name": "Cilebut"
+        },
+        {
+          "code": "B23",
+          "name": "Bogor"
+        }
+      ],
+      "branches": [
+        {
+          "from_code": "B20",
+          "to": [
+            {
+              "code": "B_NAMBO",
+              "name": "Nambo"
+            },
+            {
+              "code": "B_CIBINONG",
+              "name": "Cibinong"
+            },
+            {
+              "code": "B_PONDOKRAJEG",
+              "name": "Pondok Rajeg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KRL_CIKARANG_LOOP",
+      "mode": "KRL",
+      "name": "Cikarang Loop Line",
+      "name_id": "Lin Lingkar Cikarang",
+      "color": "#F7941D",
+      "stations": [
+        {
+          "code": "C01",
+          "name": "Manggarai",
+          "interchange": true
+        },
+        {
+          "code": "C02",
+          "name": "Matraman"
+        },
+        {
+          "code": "C03",
+          "name": "Jatinegara",
+          "interchange": true
+        },
+        {
+          "code": "C04",
+          "name": "Klender"
+        },
+        {
+          "code": "C05",
+          "name": "Klender Baru"
+        },
+        {
+          "code": "C06",
+          "name": "Buaran"
+        },
+        {
+          "code": "C07",
+          "name": "Kranji"
+        },
+        {
+          "code": "C08",
+          "name": "Bekasi"
+        },
+        {
+          "code": "C09",
+          "name": "Bekasi Timur"
+        },
+        {
+          "code": "C10",
+          "name": "Tambun"
+        },
+        {
+          "code": "C11",
+          "name": "Cibitung"
+        },
+        {
+          "code": "C11a",
+          "name": "Metland Telagamurni"
+        },
+        {
+          "code": "C12",
+          "name": "Cikarang"
+        }
+      ]
+    },
+    {
+      "id": "KRL_RANGKASBITUNG",
+      "mode": "KRL",
+      "name": "Rangkasbitung Line",
+      "name_id": "Lin Rangkasbitung",
+      "color": "#8B5A2B",
+      "stations": [
+        {
+          "code": "R01",
+          "name": "Tanah Abang",
+          "interchange": true
+        },
+        {
+          "code": "R02",
+          "name": "Palmerah"
+        },
+        {
+          "code": "R03",
+          "name": "Kebayoran"
+        },
+        {
+          "code": "R04",
+          "name": "Pondok Ranji"
+        },
+        {
+          "code": "R05",
+          "name": "Jurangmangu"
+        },
+        {
+          "code": "R06",
+          "name": "Sudimara"
+        },
+        {
+          "code": "R07",
+          "name": "Rawa Buntu"
+        },
+        {
+          "code": "R08",
+          "name": "Serpong"
+        },
+        {
+          "code": "R09",
+          "name": "Jatake"
+        },
+        {
+          "code": "R10",
+          "name": "Cicayur"
+        },
+        {
+          "code": "R11",
+          "name": "Cisauk"
+        },
+        {
+          "code": "R12",
+          "name": "Parung Panjang"
+        },
+        {
+          "code": "R14",
+          "name": "Cilejit"
+        },
+        {
+          "code": "R15",
+          "name": "Daru"
+        },
+        {
+          "code": "R16",
+          "name": "Tenjo"
+        },
+        {
+          "code": "R18",
+          "name": "Tigaraksa"
+        },
+        {
+          "code": "R19",
+          "name": "Cikoya"
+        },
+        {
+          "code": "R20",
+          "name": "Maja"
+        },
+        {
+          "code": "R21",
+          "name": "Citeras"
+        },
+        {
+          "code": "R22",
+          "name": "Rangkasbitung"
+        }
+      ]
+    },
+    {
+      "id": "KRL_TANGERANG",
+      "mode": "KRL",
+      "name": "Tangerang Line",
+      "name_id": "Lin Tangerang",
+      "color": "#00A9E0",
+      "stations": [
+        {
+          "code": "T01",
+          "name": "Duri",
+          "interchange": true
+        },
+        {
+          "code": "T02",
+          "name": "Grogol"
+        },
+        {
+          "code": "T03",
+          "name": "Pesing"
+        },
+        {
+          "code": "T04",
+          "name": "Taman Kota"
+        },
+        {
+          "code": "T05",
+          "name": "Bojong Indah"
+        },
+        {
+          "code": "T06",
+          "name": "Rawa Buaya"
+        },
+        {
+          "code": "T07",
+          "name": "Kalideres"
+        },
+        {
+          "code": "T08",
+          "name": "Poris"
+        },
+        {
+          "code": "T09",
+          "name": "Batu Ceper",
+          "interchange": true
+        },
+        {
+          "code": "T10",
+          "name": "Tanah Tinggi"
+        },
+        {
+          "code": "T11",
+          "name": "Tangerang"
+        }
+      ]
+    },
+    {
+      "id": "KRL_TANJUNG_PRIOK",
+      "mode": "KRL",
+      "name": "Tanjung Priok Line",
+      "name_id": "Lin Tanjung Priok",
+      "color": "#6B3FA0",
+      "stations": [
+        {
+          "code": "TP01",
+          "name": "Jakarta Kota",
+          "interchange": true
+        },
+        {
+          "code": "TP02",
+          "name": "Kampung Bandan",
+          "interchange": true
+        },
+        {
+          "code": "TP03",
+          "name": "Rajawali"
+        },
+        {
+          "code": "TP04",
+          "name": "Ancol"
+        },
+        {
+          "code": "TP05",
+          "name": "Tanjung Priok"
+        }
+      ]
+    },
+    {
+      "id": "KRL_AIRPORT",
+      "mode": "KRL",
+      "name": "Soekarno-Hatta Airport Line",
+      "name_id": "Lin KA Bandara Soekarno-Hatta",
+      "color": "#003DA5",
+      "stations": [
+        {
+          "code": "A01",
+          "name": "Manggarai",
+          "interchange": true
+        },
+        {
+          "code": "A02",
+          "name": "Sudirman Baru / BNI City"
+        },
+        {
+          "code": "A03",
+          "name": "Duri",
+          "interchange": true
+        },
+        {
+          "code": "A03a",
+          "name": "Batu Ceper",
+          "interchange": true
+        },
+        {
+          "code": "A04",
+          "name": "Bandara Soekarno-Hatta Terminal 1"
+        },
+        {
+          "code": "A05",
+          "name": "Bandara Soekarno-Hatta Terminal 2/3"
+        }
+      ]
+    }
+  ],
+  "transjakarta_corridors": [
+    {
+      "id": "TJ_1",
+      "corridor_number": "1",
+      "mode": "TRANSJAKARTA",
+      "route": "Blok M - Kota",
+      "color": "#DA291C",
+      "stations": [
+        {
+          "code": "1-1",
+          "name": "Blok M"
+        },
+        {
+          "code": "1-2",
+          "name": "ASEAN"
+        },
+        {
+          "code": "1-3",
+          "name": "Masjid Agung"
+        },
+        {
+          "code": "1-4",
+          "name": "Bundaran Senayan"
+        },
+        {
+          "code": "1-5",
+          "name": "Senayan Bank Jakarta"
+        },
+        {
+          "code": "1-6",
+          "name": "Polda Metro Jaya"
+        },
+        {
+          "code": "1-7",
+          "name": "Bendungan Hilir"
+        },
+        {
+          "code": "1-8",
+          "name": "Karet"
+        },
+        {
+          "code": "1-9",
+          "name": "Dukuh Atas/Galunggung"
+        },
+        {
+          "code": "1-10",
+          "name": "Tosari"
+        },
+        {
+          "code": "1-11",
+          "name": "Bundaran HI ASTRA"
+        },
+        {
+          "code": "1-12",
+          "name": "MH Thamrin"
+        },
+        {
+          "code": "1-13",
+          "name": "Kebon Sirih"
+        },
+        {
+          "code": "1-14",
+          "name": "Monumen Nasional"
+        },
+        {
+          "code": "1-15",
+          "name": "Harmoni"
+        },
+        {
+          "code": "1-16",
+          "name": "Sawah Besar"
+        },
+        {
+          "code": "1-17",
+          "name": "Mangga Besar"
+        },
+        {
+          "code": "1-18",
+          "name": "Taman Sari"
+        },
+        {
+          "code": "1-19",
+          "name": "Glodok"
+        },
+        {
+          "code": "1-20",
+          "name": "Kota"
+        },
+        {
+          "code": "1-21",
+          "name": "Kali Besar"
+        },
+        {
+          "code": "1-22",
+          "name": "Museum Sejarah Jakarta - Stadhuis"
+        }
+      ]
+    },
+    {
+      "id": "TJ_2",
+      "corridor_number": "2",
+      "mode": "TRANSJAKARTA",
+      "route": "Pulo Gadung - Monumen Nasional",
+      "color": "#F26522",
+      "stations": [
+        {
+          "code": "2-1",
+          "name": "Pulo Gadung"
+        },
+        {
+          "code": "2-2",
+          "name": "Bermis"
+        },
+        {
+          "code": "2-3",
+          "name": "Pulo Mas"
+        },
+        {
+          "code": "2-4",
+          "name": "Perintis Kemerdekaan"
+        },
+        {
+          "code": "2-5",
+          "name": "Pedongkelan"
+        },
+        {
+          "code": "2-6",
+          "name": "Cempaka Mas"
+        },
+        {
+          "code": "2-7",
+          "name": "Sumur Batu"
+        },
+        {
+          "code": "2-8",
+          "name": "Cempaka Baru"
+        },
+        {
+          "code": "2-9",
+          "name": "Pasar Cempaka Putih"
+        },
+        {
+          "code": "2-10",
+          "name": "Rawa Selatan"
+        },
+        {
+          "code": "2-11",
+          "name": "Galur"
+        },
+        {
+          "code": "2-12",
+          "name": "Senen"
+        },
+        {
+          "code": "2-13",
+          "name": "Senen Raya"
+        },
+        {
+          "code": "2-14",
+          "name": "RSPAD"
+        },
+        {
+          "code": "2-15",
+          "name": "Pejambon"
+        },
+        {
+          "code": "2-16",
+          "name": "Gambir"
+        },
+        {
+          "code": "2-17",
+          "name": "Istiqlal"
+        },
+        {
+          "code": "2-18",
+          "name": "Juanda"
+        },
+        {
+          "code": "2-19",
+          "name": "Pecenongan"
+        },
+        {
+          "code": "2-20",
+          "name": "Monumen Nasional"
+        },
+        {
+          "code": "2-21",
+          "name": "Balai Kota"
+        },
+        {
+          "code": "2-22",
+          "name": "Gambir 2"
+        },
+        {
+          "code": "2-23",
+          "name": "Kwitang"
+        }
+      ]
+    },
+    {
+      "id": "TJ_3",
+      "corridor_number": "3",
+      "mode": "TRANSJAKARTA",
+      "route": "Kalideres - Monumen Nasional",
+      "color": "#FDB913",
+      "stations": [
+        {
+          "code": "3-1",
+          "name": "Kalideres"
+        },
+        {
+          "code": "3-2",
+          "name": "Pesakih"
+        },
+        {
+          "code": "3-3",
+          "name": "Sumur Bor"
+        },
+        {
+          "code": "3-4",
+          "name": "Rawa Buaya"
+        },
+        {
+          "code": "3-5",
+          "name": "Jembatan Baru"
+        },
+        {
+          "code": "3-6",
+          "name": "Pulo Nangka"
+        },
+        {
+          "code": "3-7",
+          "name": "Jembatan Gantung"
+        },
+        {
+          "code": "3-8",
+          "name": "Taman Kota"
+        },
+        {
+          "code": "3-9",
+          "name": "Damai"
+        },
+        {
+          "code": "3-10",
+          "name": "Jelambar"
+        },
+        {
+          "code": "3-11",
+          "name": "Grogol"
+        },
+        {
+          "code": "3-12",
+          "name": "Roxy"
+        },
+        {
+          "code": "3-13",
+          "name": "Pecenongan"
+        },
+        {
+          "code": "3-14",
+          "name": "Juanda"
+        },
+        {
+          "code": "3-15",
+          "name": "Pasar Baru"
+        }
+      ]
+    },
+    {
+      "id": "TJ_4",
+      "corridor_number": "4",
+      "mode": "TRANSJAKARTA",
+      "route": "Pulo Gadung - Dukuh Atas/Galunggung",
+      "color": "#8DC63F",
+      "stations": [
+        {
+          "code": "4-1",
+          "name": "Pulo Gadung"
+        },
+        {
+          "code": "4-2",
+          "name": "Pasar Pulo Gadung"
+        },
+        {
+          "code": "4-3",
+          "name": "Pemuda Merdeka"
+        },
+        {
+          "code": "4-4",
+          "name": "Layur"
+        },
+        {
+          "code": "4-5",
+          "name": "Pemuda Rawamangun"
+        },
+        {
+          "code": "4-6",
+          "name": "Velodrome"
+        },
+        {
+          "code": "4-7",
+          "name": "Kayu Jati"
+        },
+        {
+          "code": "4-8",
+          "name": "Rawamangun"
+        },
+        {
+          "code": "4-9",
+          "name": "Simpang Pramuka"
+        },
+        {
+          "code": "4-10",
+          "name": "Pramuka Sari"
+        },
+        {
+          "code": "4-11",
+          "name": "Utan Kayu"
+        },
+        {
+          "code": "4-12",
+          "name": "Pasar Genjing"
+        },
+        {
+          "code": "4-13",
+          "name": "Flyover Pramuka"
+        },
+        {
+          "code": "4-14",
+          "name": "Manggarai"
+        },
+        {
+          "code": "4-15",
+          "name": "Pasar Rumput"
+        },
+        {
+          "code": "4-16",
+          "name": "Halimun"
+        },
+        {
+          "code": "4-17",
+          "name": "Dukuh Atas/Galunggung"
+        }
+      ]
+    },
+    {
+      "id": "TJ_5",
+      "corridor_number": "5",
+      "mode": "TRANSJAKARTA",
+      "route": "Ancol - Kampung Melayu",
+      "color": "#00A651",
+      "stations": [
+        {
+          "code": "5-1",
+          "name": "Ancol"
+        },
+        {
+          "code": "5-2",
+          "name": "Pademangan"
+        },
+        {
+          "code": "5-3",
+          "name": "Gunung Sahari"
+        },
+        {
+          "code": "5-4",
+          "name": "Jembatan Merah"
+        },
+        {
+          "code": "5-5",
+          "name": "Pasar Baru Timur"
+        },
+        {
+          "code": "5-6",
+          "name": "Lapangan Banteng"
+        },
+        {
+          "code": "5-7",
+          "name": "Jaga Jakarta"
+        },
+        {
+          "code": "5-8",
+          "name": "Pal Putih"
+        },
+        {
+          "code": "5-9",
+          "name": "Kramat Sentiong"
+        },
+        {
+          "code": "5-10",
+          "name": "Salemba"
+        },
+        {
+          "code": "5-11",
+          "name": "Paseban"
+        },
+        {
+          "code": "5-12",
+          "name": "Matraman"
+        },
+        {
+          "code": "5-13",
+          "name": "Tegalan"
+        },
+        {
+          "code": "5-14",
+          "name": "Kesatrian"
+        },
+        {
+          "code": "5-15",
+          "name": "Matraman Baru"
+        },
+        {
+          "code": "5-16",
+          "name": "Bali Mester"
+        },
+        {
+          "code": "5-17",
+          "name": "Jatinegara"
+        },
+        {
+          "code": "5-18",
+          "name": "Kampung Melayu"
+        }
+      ]
+    },
+    {
+      "id": "TJ_6",
+      "corridor_number": "6",
+      "mode": "TRANSJAKARTA",
+      "route": "Ragunan - Dukuh Atas/Galunggung",
+      "color": "#00AEEF",
+      "stations": [
+        {
+          "code": "6-1",
+          "name": "Ragunan"
+        },
+        {
+          "code": "6-2",
+          "name": "Simpang Ragunan Ar-Raudhah"
+        },
+        {
+          "code": "6-3",
+          "name": "Jati Barat"
+        },
+        {
+          "code": "6-4",
+          "name": "Jati Padang"
+        },
+        {
+          "code": "6-5",
+          "name": "Pejaten"
+        },
+        {
+          "code": "6-6",
+          "name": "Buncit Indah"
+        },
+        {
+          "code": "6-7",
+          "name": "Warung Jati"
+        },
+        {
+          "code": "6-8",
+          "name": "Warung Buncit"
+        },
+        {
+          "code": "6-9",
+          "name": "Duren Tiga"
+        },
+        {
+          "code": "6-10",
+          "name": "Mampang Prapatan"
+        },
+        {
+          "code": "6-11",
+          "name": "Underpass Kuningan"
+        },
+        {
+          "code": "6-12",
+          "name": "Patra Kuningan"
+        },
+        {
+          "code": "6-13",
+          "name": "Kuningan"
+        },
+        {
+          "code": "6-14",
+          "name": "Rasuna Said"
+        },
+        {
+          "code": "6-15",
+          "name": "Karet Kuningan"
+        },
+        {
+          "code": "6-16",
+          "name": "Kuningan Madya"
+        },
+        {
+          "code": "6-17",
+          "name": "Setiabudi"
+        },
+        {
+          "code": "6-18",
+          "name": "Flyover Kuningan"
+        },
+        {
+          "code": "6-19",
+          "name": "Dukuh Atas/Galunggung"
+        }
+      ]
+    },
+    {
+      "id": "TJ_7",
+      "corridor_number": "7",
+      "mode": "TRANSJAKARTA",
+      "route": "Kampung Rambutan - Kampung Melayu",
+      "color": "#0072BC",
+      "stations": [
+        {
+          "code": "7-1",
+          "name": "Kampung Rambutan"
+        },
+        {
+          "code": "7-2",
+          "name": "Tanah Merdeka"
+        },
+        {
+          "code": "7-3",
+          "name": "Flyover Raya Bogor"
+        },
+        {
+          "code": "7-4",
+          "name": "Trikora"
+        },
+        {
+          "code": "7-5",
+          "name": "Pasar Induk"
+        },
+        {
+          "code": "7-6",
+          "name": "Kramat Jati"
+        },
+        {
+          "code": "7-7",
+          "name": "Cililitan"
+        },
+        {
+          "code": "7-8",
+          "name": "Cawang Cililitan"
+        },
+        {
+          "code": "7-9",
+          "name": "Cawang Sentral"
+        },
+        {
+          "code": "7-10",
+          "name": "Cawang"
+        },
+        {
+          "code": "7-11",
+          "name": "Cawang Baru"
+        },
+        {
+          "code": "7-12",
+          "name": "Gelanggang Remaja"
+        },
+        {
+          "code": "7-13",
+          "name": "Bidara Cina"
+        },
+        {
+          "code": "7-14",
+          "name": "Kampung Melayu"
+        }
+      ]
+    },
+    {
+      "id": "TJ_8",
+      "corridor_number": "8",
+      "mode": "TRANSJAKARTA",
+      "route": "Lebak Bulus - Pasar Baru (via Kebayoran/Tanah Abang)",
+      "color": "#662D91",
+      "stations": [
+        {
+          "code": "8-1",
+          "name": "Lebak Bulus"
+        },
+        {
+          "code": "8-2",
+          "name": "Pondok Pinang"
+        },
+        {
+          "code": "8-3",
+          "name": "Underpass Lebak Bulus"
+        },
+        {
+          "code": "8-4",
+          "name": "Pondok Indah"
+        },
+        {
+          "code": "8-5",
+          "name": "Tanah Kusir"
+        },
+        {
+          "code": "8-6",
+          "name": "Bungur"
+        },
+        {
+          "code": "8-7",
+          "name": "Kebayoran"
+        },
+        {
+          "code": "8-8",
+          "name": "Simprug"
+        },
+        {
+          "code": "8-9",
+          "name": "Permata Hijau"
+        },
+        {
+          "code": "8-10",
+          "name": "Arteri"
+        },
+        {
+          "code": "8-11",
+          "name": "Pos Pengumben"
+        },
+        {
+          "code": "8-12",
+          "name": "Kelapa Dua Sasak"
+        },
+        {
+          "code": "8-13",
+          "name": "Kebon Jeruk"
+        },
+        {
+          "code": "8-14",
+          "name": "Duri Kepa"
+        },
+        {
+          "code": "8-15",
+          "name": "Kedoya Panjang"
+        },
+        {
+          "code": "8-16",
+          "name": "Kedoya"
+        },
+        {
+          "code": "8-17",
+          "name": "Damai"
+        },
+        {
+          "code": "8-18",
+          "name": "Jelambar"
+        },
+        {
+          "code": "8-19",
+          "name": "Grogol Reformasi"
+        },
+        {
+          "code": "8-20",
+          "name": "Tanjung Duren"
+        },
+        {
+          "code": "8-21",
+          "name": "Tomang Raya"
+        },
+        {
+          "code": "8-22",
+          "name": "Tarakan"
+        },
+        {
+          "code": "8-23",
+          "name": "Petojo"
+        }
+      ]
+    },
+    {
+      "id": "TJ_9",
+      "corridor_number": "9",
+      "mode": "TRANSJAKARTA",
+      "route": "Pluit - Pinang Ranti",
+      "color": "#EC008C",
+      "stations": [
+        {
+          "code": "9-1",
+          "name": "Pluit"
+        },
+        {
+          "code": "9-2",
+          "name": "Penjaringan"
+        },
+        {
+          "code": "9-3",
+          "name": "Jembatan Tiga"
+        },
+        {
+          "code": "9-4",
+          "name": "Jembatan Dua"
+        },
+        {
+          "code": "9-5",
+          "name": "Jembatan Besi"
+        },
+        {
+          "code": "9-6",
+          "name": "Kali Grogol"
+        },
+        {
+          "code": "9-7",
+          "name": "Grogol"
+        },
+        {
+          "code": "9-8",
+          "name": "Tanjung Duren"
+        },
+        {
+          "code": "9-9",
+          "name": "Kota Bambu"
+        },
+        {
+          "code": "9-10",
+          "name": "Kemanggisan"
+        },
+        {
+          "code": "9-11",
+          "name": "Petamburan"
+        },
+        {
+          "code": "9-12",
+          "name": "Gerbang Pemuda"
+        },
+        {
+          "code": "9-13",
+          "name": "Semanggi"
+        },
+        {
+          "code": "9-14",
+          "name": "Widya Chandra Telkomsel"
+        },
+        {
+          "code": "9-15",
+          "name": "Denpasar"
+        },
+        {
+          "code": "9-16",
+          "name": "Simpang Kuningan"
+        },
+        {
+          "code": "9-17",
+          "name": "Tegal Parang"
+        },
+        {
+          "code": "9-18",
+          "name": "Pancoran"
+        },
+        {
+          "code": "9-19",
+          "name": "Pancoran Tugu"
+        },
+        {
+          "code": "9-20",
+          "name": "Tebet Eco Park"
+        },
+        {
+          "code": "9-21",
+          "name": "Cikoko"
+        },
+        {
+          "code": "9-22",
+          "name": "Ciliwung"
+        },
+        {
+          "code": "9-23",
+          "name": "Cawang"
+        },
+        {
+          "code": "9-24",
+          "name": "Cawang Sentral"
+        },
+        {
+          "code": "9-25",
+          "name": "Makasar"
+        },
+        {
+          "code": "9-26",
+          "name": "Pinang Ranti"
+        }
+      ]
+    },
+    {
+      "id": "TJ_10",
+      "corridor_number": "10",
+      "mode": "TRANSJAKARTA",
+      "route": "Tanjung Priok - PGC",
+      "color": "#A6192E",
+      "stations": [
+        {
+          "code": "10-1",
+          "name": "Tanjung Priok"
+        },
+        {
+          "code": "10-2",
+          "name": "Mambo"
+        },
+        {
+          "code": "10-3",
+          "name": "Koja"
+        },
+        {
+          "code": "10-4",
+          "name": "Walikota Jakarta Utara"
+        },
+        {
+          "code": "10-5",
+          "name": "Plumpang"
+        },
+        {
+          "code": "10-6",
+          "name": "Sunter Kelapa Gading"
+        },
+        {
+          "code": "10-7",
+          "name": "Kodamar"
+        },
+        {
+          "code": "10-8",
+          "name": "Simpang Cempaka"
+        },
+        {
+          "code": "10-9",
+          "name": "Cempaka Putih"
+        },
+        {
+          "code": "10-10",
+          "name": "Pulo Mas Bypass"
+        },
+        {
+          "code": "10-11",
+          "name": "Kayu Putih Rawasari"
+        },
+        {
+          "code": "10-12",
+          "name": "Pemuda Pramuka"
+        },
+        {
+          "code": "10-13",
+          "name": "Utan Kayu Rawamangun"
+        },
+        {
+          "code": "10-14",
+          "name": "Pisangan"
+        },
+        {
+          "code": "10-15",
+          "name": "Flyover Jatinegara"
+        },
+        {
+          "code": "10-16",
+          "name": "Pedati Prumpung"
+        },
+        {
+          "code": "10-17",
+          "name": "Kebon Nanas"
+        },
+        {
+          "code": "10-18",
+          "name": "Halim"
+        },
+        {
+          "code": "10-19",
+          "name": "Simpang Cawang"
+        },
+        {
+          "code": "10-20",
+          "name": "Cawang Sentral"
+        },
+        {
+          "code": "10-21",
+          "name": "Cawang Cililitan"
+        },
+        {
+          "code": "10-22",
+          "name": "PGC"
+        }
+      ]
+    },
+    {
+      "id": "TJ_11",
+      "corridor_number": "11",
+      "mode": "TRANSJAKARTA",
+      "route": "Pulo Gebang - Kampung Melayu",
+      "color": "#754C24",
+      "stations": [
+        {
+          "code": "11-1",
+          "name": "Pulo Gebang"
+        },
+        {
+          "code": "11-2",
+          "name": "Walikota Jakarta Timur"
+        },
+        {
+          "code": "11-3",
+          "name": "Penggilingan"
+        },
+        {
+          "code": "11-4",
+          "name": "Flyover Pondok Kopi"
+        },
+        {
+          "code": "11-5",
+          "name": "Simpang Buaran"
+        },
+        {
+          "code": "11-6",
+          "name": "Buaran"
+        },
+        {
+          "code": "11-7",
+          "name": "Kampung Sumur"
+        },
+        {
+          "code": "11-8",
+          "name": "Klender"
+        },
+        {
+          "code": "11-9",
+          "name": "Stasiun Klender"
+        },
+        {
+          "code": "11-10",
+          "name": "Cipinang"
+        },
+        {
+          "code": "11-11",
+          "name": "Flyover Cipinang"
+        },
+        {
+          "code": "11-12",
+          "name": "Pasar Enjo"
+        },
+        {
+          "code": "11-13",
+          "name": "Flyover Jatinegara"
+        },
+        {
+          "code": "11-14",
+          "name": "Stasiun Jatinegara"
+        },
+        {
+          "code": "11-15",
+          "name": "Jatinegara"
+        },
+        {
+          "code": "11-16",
+          "name": "Kampung Melayu"
+        }
+      ]
+    },
+    {
+      "id": "TJ_12",
+      "corridor_number": "12",
+      "mode": "TRANSJAKARTA",
+      "route": "Pluit - Tanjung Priok",
+      "color": "#6D6E71",
+      "stations": [
+        {
+          "code": "12-1",
+          "name": "Pluit"
+        },
+        {
+          "code": "12-2",
+          "name": "Pluit Selatan"
+        },
+        {
+          "code": "12-3",
+          "name": "Pakin"
+        },
+        {
+          "code": "12-4",
+          "name": "Gedong Panjang"
+        },
+        {
+          "code": "12-5",
+          "name": "Museum Sejarah Jakarta - Stadhuis"
+        },
+        {
+          "code": "12-6",
+          "name": "Kota"
+        },
+        {
+          "code": "12-7",
+          "name": "Mangga Dua Raya"
+        },
+        {
+          "code": "12-8",
+          "name": "Mangga Dua"
+        },
+        {
+          "code": "12-9",
+          "name": "Gunung Sahari"
+        },
+        {
+          "code": "12-10",
+          "name": "Jembatan Merah"
+        },
+        {
+          "code": "12-11",
+          "name": "Landasan Pacu"
+        },
+        {
+          "code": "12-12",
+          "name": "Danau Agung"
+        },
+        {
+          "code": "12-13",
+          "name": "Danau Sunter"
+        },
+        {
+          "code": "12-14",
+          "name": "Sunter Utara"
+        },
+        {
+          "code": "12-15",
+          "name": "Sunter Karya"
+        },
+        {
+          "code": "12-16",
+          "name": "Sunter Boulevard Barat"
+        },
+        {
+          "code": "12-17",
+          "name": "Sunter Kelapa Gading"
+        },
+        {
+          "code": "12-18",
+          "name": "Plumpang"
+        },
+        {
+          "code": "12-19",
+          "name": "Walikota Jakarta Utara"
+        },
+        {
+          "code": "12-20",
+          "name": "Koja"
+        },
+        {
+          "code": "12-21",
+          "name": "Mambo"
+        },
+        {
+          "code": "12-22",
+          "name": "Tanjung Priok"
+        },
+        {
+          "code": "12-23",
+          "name": "Kali Besar"
+        },
+        {
+          "code": "12-24",
+          "name": "Bandengan"
+        },
+        {
+          "code": "12-25",
+          "name": "Penjaringan"
+        }
+      ]
+    },
+    {
+      "id": "TJ_13",
+      "corridor_number": "13",
+      "mode": "TRANSJAKARTA",
+      "route": "Ciledug - Tegal Mampang",
+      "color": "#B2A97E",
+      "stations": [
+        {
+          "code": "13-1",
+          "name": "CBD Ciledug"
+        },
+        {
+          "code": "13-2",
+          "name": "Puri Beta 1"
+        },
+        {
+          "code": "13-3",
+          "name": "Puri Beta 2"
+        },
+        {
+          "code": "13-4",
+          "name": "Petukangan D'MASIV"
+        },
+        {
+          "code": "13-5",
+          "name": "JORR"
+        },
+        {
+          "code": "13-6",
+          "name": "Swadarma ParagonCorp"
+        },
+        {
+          "code": "13-7",
+          "name": "Cipulir"
+        },
+        {
+          "code": "13-8",
+          "name": "Seskoal"
+        },
+        {
+          "code": "13-9",
+          "name": "Kebayoran Lama"
+        },
+        {
+          "code": "13-10",
+          "name": "Velbak"
+        },
+        {
+          "code": "13-11",
+          "name": "Mayestik"
+        },
+        {
+          "code": "13-12",
+          "name": "CSW"
+        },
+        {
+          "code": "13-13",
+          "name": "Pasar Santa"
+        },
+        {
+          "code": "13-14",
+          "name": "Rawa Barat"
+        },
+        {
+          "code": "13-15",
+          "name": "Tegal Mampang"
+        }
+      ]
+    },
+    {
+      "id": "TJ_14",
+      "corridor_number": "14",
+      "mode": "TRANSJAKARTA",
+      "route": "Senen - Jakarta International Stadium",
+      "color": "#00A99D",
+      "stations": [
+        {
+          "code": "14-1",
+          "name": "Senen"
+        },
+        {
+          "code": "14-2",
+          "name": "Senen Raya"
+        },
+        {
+          "code": "14-3",
+          "name": "Tanah Tinggi"
+        },
+        {
+          "code": "14-4",
+          "name": "Kemayoran"
+        },
+        {
+          "code": "14-5",
+          "name": "JIEXPO Kemayoran"
+        },
+        {
+          "code": "14-6",
+          "name": "Landasan Pacu"
+        },
+        {
+          "code": "14-7",
+          "name": "Danau Agung"
+        },
+        {
+          "code": "14-8",
+          "name": "Danau Sunter"
+        },
+        {
+          "code": "14-9",
+          "name": "Jembatan Item"
+        },
+        {
+          "code": "14-10",
+          "name": "Jakarta International Stadium"
+        }
+      ]
+    }
+  ],
+  "transjakarta_variants": [
+    {
+      "id": "2A",
+      "base_corridor": "2",
+      "route": "Pulo Gadung - Rawa Buaya"
+    },
+    {
+      "id": "3F",
+      "base_corridor": "3",
+      "route": "Kalideres - Senayan Bank Jakarta"
+    },
+    {
+      "id": "3H",
+      "base_corridor": "3",
+      "route": "Damai - Kota"
+    },
+    {
+      "id": "4D",
+      "base_corridor": "4",
+      "route": "Pulo Gadung - Patra Kuningan"
+    },
+    {
+      "id": "5C",
+      "base_corridor": "5",
+      "route": "Juanda - Cililitan"
+    },
+    {
+      "id": "6A",
+      "base_corridor": "6",
+      "route": "Ragunan - Balai Kota (via Kuningan)"
+    },
+    {
+      "id": "6B",
+      "base_corridor": "6",
+      "route": "Ragunan - Balai Kota (via Semanggi)"
+    },
+    {
+      "id": "6V",
+      "base_corridor": "6",
+      "route": "Ragunan - Senayan Bank Jakarta (via Rawa Barat)"
+    },
+    {
+      "id": "7F",
+      "base_corridor": "7",
+      "route": "Kampung Rambutan - Juanda (via Tol)"
+    },
+    {
+      "id": "L7",
+      "base_corridor": "7",
+      "route": "Kampung Rambutan - Kampung Melayu (via Tol, express)"
+    },
+    {
+      "id": "9A",
+      "base_corridor": "9",
+      "route": "Grogol Reformasi - Cililitan"
+    },
+    {
+      "id": "9C",
+      "base_corridor": "9",
+      "route": "Pinang Ranti - Bundaran Senayan"
+    },
+    {
+      "id": "9N",
+      "base_corridor": "9",
+      "route": "Pinang Ranti - Simpang Cawang"
+    },
+    {
+      "id": "10D",
+      "base_corridor": "10",
+      "route": "Tanjung Priok - Kampung Rambutan (via Tol)"
+    },
+    {
+      "id": "10H",
+      "base_corridor": "10",
+      "route": "Tanjung Priok - Bundaran Senayan"
+    },
+    {
+      "id": "13B",
+      "base_corridor": "13",
+      "route": "Puri Beta 2 - Pancoran"
+    },
+    {
+      "id": "13E",
+      "base_corridor": "13",
+      "route": "Puri Beta 2 - Flyover Kuningan"
+    },
+    {
+      "id": "L13E",
+      "base_corridor": "13",
+      "route": "Puri Beta 2 - Flyover Kuningan (Ekspres)"
+    }
+  ],
+  "major_interchange_hubs": [
+    {
+      "name": "Dukuh Atas",
+      "modes": [
+        "MRT",
+        "LRT_JABODEBEK",
+        "TRANSJAKARTA (corridor 1, 4, 6)"
+      ],
+      "note": "Mega-hub: MRT north-south terminus-ish, both LRT Jabodebek lines, multiple TJ corridors, short walk to KRL at Sudirman"
+    },
+    {
+      "name": "Manggarai",
+      "modes": [
+        "KRL (Bogor, Cikarang Loop, Airport)",
+        "TRANSJAKARTA (corridor 4)"
+      ],
+      "note": "Central hub for all KRL lines"
+    },
+    {
+      "name": "Cawang",
+      "modes": [
+        "LRT_JABODEBEK",
+        "KRL Bogor Line (nearby)",
+        "TRANSJAKARTA (corridor 7, 9, 10)"
+      ],
+      "note": "Both LRT Jabodebek lines split here; multiple TJ corridors cross"
+    },
+    {
+      "name": "Duri",
+      "modes": [
+        "KRL (Tangerang, Airport)"
+      ],
+      "note": "West side KRL interchange"
+    },
+    {
+      "name": "Jatinegara",
+      "modes": [
+        "KRL (Bogor, Cikarang Loop)",
+        "TRANSJAKARTA (corridor 5, 11)"
+      ],
+      "note": "East side KRL + TJ interchange"
+    },
+    {
+      "name": "Kampung Bandan",
+      "modes": [
+        "KRL (Tanjung Priok line)"
+      ],
+      "note": "Interchange station, no need to exit"
+    },
+    {
+      "name": "Batu Ceper",
+      "modes": [
+        "KRL (Tangerang, Airport)"
+      ],
+      "note": "West side interchange to airport line"
+    },
+    {
+      "name": "Kota (Jakarta Kota)",
+      "modes": [
+        "KRL (Bogor, Tanjung Priok)",
+        "TRANSJAKARTA (corridor 1, 12)"
+      ],
+      "note": "Historic old-town hub, KRL + TJ"
+    },
+    {
+      "name": "Grogol",
+      "modes": [
+        "KRL (Tangerang line, nearby)",
+        "TRANSJAKARTA (corridor 3, 9)"
+      ],
+      "note": "West Jakarta TJ crossing point"
+    },
+    {
+      "name": "Kampung Melayu",
+      "modes": [
+        "TRANSJAKARTA (corridor 5, 7, 11)"
+      ],
+      "note": "Major TJ-only hub, east-central Jakarta"
+    }
+  ],
+  "transjakarta_note": "Codes with prefixes SE/U/L (other than L7, L13E) and 'TB' seen on the source map correspond to the planned/under-construction MRT East-West line phases, not operational TransJakarta stops -- excluded here as they are not yet operational."
+}

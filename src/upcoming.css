@@ -1,0 +1,24 @@
+.upcoming-node {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 76px;
+  padding: 12px;
+  color: #788399;
+  border: 1px dashed #c7cfdd;
+  border-radius: 18px;
+  background: #f8fafc;
+}
+.upcoming-node i {
+  display: grid;
+  place-items: center;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e6eaf1;
+  font-style: normal;
+  font-size: 18px;
+}
+.upcoming-node span { display: grid; gap: 3px; }
+.upcoming-node small { line-height: 1.35; }

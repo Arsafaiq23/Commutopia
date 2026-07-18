@@ -1,0 +1,60 @@
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from 'react'
+import type { Challenge } from './domain'
+import type { Profile } from './storage'
+import { applyPipeRushMove, createPipeRushState, isPipeRushComplete, isValidPipeRushMove, pipeRushScenarios, pipeRushSummary, stationName, type PipeRushPaletteService, type PipeRushRunState, type PipeRushRunSummary, type PipeRushScenario } from './pipe-rush-engine'
+import { transitGraph } from './transit-graph'
+
+type Phase = 'goal' | 'playing' | 'complete'
+type Point = { x: number; y: number }
+const duration = (seconds: number) => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`
+const distance = (a: Point, b: Point) => Math.hypot(a.x - b.x, a.y - b.y)
+const labels: Record<string, string> = {
+  'KRL_CIKARANG_LOOP:C01': 'Manggarai Loop', 'KRL_BOGOR:B07': 'Manggarai Bogor', 'KRL_AIRPORT:A01': 'Manggarai ARL',
+  'LRT_JBDBK_BEKASI:BK01': 'Dukuh Atas LRT', 'LRT_JBDBK_CIBUBUR:CB01': 'Dukuh Atas LRT', 'MRT_NS:M12': 'Dukuh Atas MRT', 'TJ_1:1-9': 'Dukuh Atas TJ',
+}
+const shortName = (id: string) => labels[id] ?? stationName(id).replace('Jakarta ', '')
+
+function positionsFor(scenario: PipeRushScenario) {
+  const track = [55, 126, 200, 264, 232, 162, 92, 55, 122, 198]
+  const height = scenario.stationIds.length > 1 ? 310 / (scenario.stationIds.length - 1) : 0
+  return Object.fromEntries(scenario.stationIds.map((id, index) => [id, { x: track[index % track.length], y: 350 - index * height }])) as Record<string, Point>
+}
+
+function RouteMap({ scenario, state, selectedService, drag, onPointerDown, onPointerMove, onPointerUp, onNodeActivate }: {
+  scenario: PipeRushScenario; state: PipeRushRunState; selectedService?: PipeRushPaletteService; drag?: Point
+  onPointerDown: (event: ReactPointerEvent<SVGSVGElement>) => void; onPointerMove: (event: ReactPointerEvent<SVGSVGElement>) => void; onPointerUp: (event: ReactPointerEvent<SVGSVGElement>) => void; onNodeActivate: (stationId: string) => void
+}) {
+  const positions = useMemo(() => positionsFor(scenario), [scenario])
+  const nearest = (point: Point) => { const found = scenario.stationIds.map((id) => ({ id, distance: distance(point, positions[id]) })).sort((a, b) => a.distance - b.distance)[0]; return found && found.distance <= 30 ? found.id : undefined }
+  const segments = state.path.slice(1).map((to, index) => ({ from: state.path[index], to }))
+  const candidate = drag ? nearest(drag) : undefined
+  const previewValid = Boolean(candidate && isValidPipeRushMove(state, candidate, selectedService, scenario))
+  const from = positions[state.currentStationId]; const preview = drag ? (candidate ? positions[candidate] : drag) : undefined
+  return <div className="pr-map-wrap"><svg className="pr-map" viewBox="0 0 320 390" role="application" aria-label={`Peta Pipe Rush ${scenario.title}`} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={onPointerUp}>
+    <path className="pr-map-base" d={scenario.stationIds.map((id, index) => `${index ? 'L' : 'M'} ${positions[id].x} ${positions[id].y}`).join(' ')}/>
+    {segments.map(({ from: start, to }, index) => <path key={`${start}-${to}-${index}`} className="pr-map-taken" d={`M ${positions[start].x} ${positions[start].y} L ${positions[to].x} ${positions[to].y}`}/>) }
+    {preview && <path className={previewValid ? 'pr-map-preview valid' : 'pr-map-preview invalid'} d={`M ${from.x} ${from.y} L ${preview.x} ${preview.y}`}/>} 
+    {scenario.stationIds.map((id, index) => { const position = positions[id]; const current = id === state.currentStationId; const target = id === scenario.endStationId; const showLabel = scenario.stationIds.length <= 10 || index === 0 || index === 1 || index === scenario.stationIds.length - 1 || index % 3 === 0; return <g key={id} className={`pr-node ${current ? 'current' : ''} ${target ? 'target' : ''} ${candidate === id ? 'snapped' : ''}`} role="button" tabIndex={0} aria-label={`${shortName(id)}${current ? ', posisi saat ini' : ''}`} onClick={() => onNodeActivate(id)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onNodeActivate(id) } }}><circle cx={position.x} cy={position.y} r={current || target ? 12 : 8}/>{showLabel && <text x={position.x} y={position.y - 18}>{shortName(id)}</text>}</g> })}
+  </svg><small>Peta skematik · urutan stop, bukan lokasi jalan</small></div>
+}
+
+export function PipeRushGame({ challenge, profile, onBack, onFinish }: { challenge: Challenge; profile: Profile; onBack: () => void; onFinish: (challenge: Challenge, ok: boolean, expired?: boolean, summary?: PipeRushRunSummary) => void }) {
+  const [scenario, setScenario] = useState(pipeRushScenarios[0]); const [phase, setPhase] = useState<Phase>('goal'); const [state, setState] = useState(() => createPipeRushState(pipeRushScenarios[0])); const [seconds, setSeconds] = useState(pipeRushScenarios[0].seconds); const [selectedService, setSelectedService] = useState<PipeRushPaletteService>(); const [drag, setDrag] = useState<Point>(); const [notice, setNotice] = useState('Pilih jalur, lalu tarik dari node awal ke stop berikutnya.'); const startedAt = useRef(0); const didTimeout = useRef(false)
+  const positions = useMemo(() => positionsFor(scenario), [scenario])
+  const scenarioIndex = pipeRushScenarios.findIndex((item) => item.id === scenario.id)
+  const reset = (next = scenario) => { setState(createPipeRushState(next)); setSeconds(next.seconds); setSelectedService(undefined); setDrag(undefined); setNotice('Pilih jalur, lalu tarik dari node awal ke stop berikutnya.'); didTimeout.current = false }
+  const selectScenario = (offset: number) => { const next = pipeRushScenarios[(scenarioIndex + offset + pipeRushScenarios.length) % pipeRushScenarios.length]; setScenario(next); reset(next) }
+  const start = () => { reset(scenario); startedAt.current = Date.now(); setPhase('playing') }; const elapsed = () => Math.max(0, Date.now() - startedAt.current)
+  useEffect(() => { if (phase !== 'playing') return; if (seconds <= 0 && !didTimeout.current) { didTimeout.current = true; onFinish(challenge, false, true, pipeRushSummary(state, elapsed(), scenario, true)); return }; const timer = window.setTimeout(() => setSeconds((value) => value - 1), 1000); return () => window.clearTimeout(timer) }, [challenge, onFinish, phase, scenario, seconds, state])
+  const nearest = (point: Point) => { const found = scenario.stationIds.map((id) => ({ id, distance: distance(point, positions[id]) })).sort((a, b) => a.distance - b.distance)[0]; return found && found.distance <= 30 ? found.id : undefined }
+  const svgPoint = (event: ReactPointerEvent<SVGSVGElement>): Point => { const rect = event.currentTarget.getBoundingClientRect(); return { x: (event.clientX - rect.left) * 320 / rect.width, y: (event.clientY - rect.top) * 390 / rect.height } }
+  const commit = (target?: string) => { if (!target) { setNotice('Dekatkan garis ke node yang ingin disambungkan.'); return }; if (!selectedService) { setNotice('Pilih warna jalur terlebih dahulu.'); return }; if (!isValidPipeRushMove(state, target, selectedService, scenario)) { setNotice('Jalur ini tidak valid. Pilih layanan yang benar lalu hubungkan node yang bersebelahan.'); return }; const next = applyPipeRushMove(state, target, selectedService, scenario); setState(next); setDrag(undefined); if (navigator.vibrate) navigator.vibrate(10); if (isPipeRushComplete(next, scenario)) { setNotice(`${shortName(scenario.endStationId)} tersambung! Periksa rute lalu submit.`); setPhase('complete') } else setNotice(`Terkunci di ${shortName(target)}. ${transitHint(target, scenario)}`) }
+  const pointerDown = (event: ReactPointerEvent<SVGSVGElement>) => { if (phase !== 'playing') return; const point = svgPoint(event); if (!selectedService) { setNotice('Pilih warna jalur terlebih dahulu.'); return }; if (nearest(point) !== state.currentStationId) { commit(nearest(point)); return }; event.currentTarget.setPointerCapture(event.pointerId); setDrag(point) }
+  const pointerMove = (event: ReactPointerEvent<SVGSVGElement>) => { if (drag) setDrag(svgPoint(event)) }; const pointerUp = (event: ReactPointerEvent<SVGSVGElement>) => { if (!drag) return; const point = svgPoint(event); setDrag(undefined); commit(nearest(point)) }; const activateNode = (stationId: string) => { if (phase === 'playing' && stationId !== state.currentStationId) commit(stationId) }
+  if (phase === 'goal') return <section className="pr-shell pr-goal"><header className="pr-header"><button onClick={onBack} aria-label="Kembali">←</button><b>PIPE RUSH</b><span>✦ {profile.xp} XP</span></header><div className="pr-scenario-switch"><button onClick={() => selectScenario(-1)} aria-label="Misi Pipe Rush sebelumnya">←</button><span><b>MISI {scenarioIndex + 1}/{pipeRushScenarios.length}</b><small>{scenario.difficulty.toUpperCase()} · {scenario.transfers} TRANSFER</small></span><button onClick={() => selectScenario(1)} aria-label="Misi Pipe Rush berikutnya">→</button></div><h1>{scenario.title}</h1><p>{scenario.transfers ? 'Pilih line yang benar dan lakukan transfer pada hub yang tervalidasi.' : 'Bangun rute KRL paling efisien sebelum waktu habis.'}</p><RouteMap scenario={scenario} state={state} onPointerDown={() => undefined} onPointerMove={() => undefined} onPointerUp={() => undefined} onNodeActivate={() => undefined}/><article className="pr-goal-card"><b>Target</b><span>{scenario.minSteps} langkah minimum · {scenario.transfers} transfer</span><strong>Hadiah hingga <em>{scenario.reward + scenario.perfectBonus} XP</em></strong></article><button className="primary cta" onClick={start}>Start Challenge <b>→</b></button></section>
+  const current = shortName(state.currentStationId)
+  return <section className={`pr-shell pr-play ${phase === 'complete' ? 'complete' : ''}`}><header className="pr-header"><button onClick={onBack} aria-label="Kembali">←</button><span className={`pr-timer ${seconds <= 15 ? 'urgent' : ''}`}>◷ {duration(seconds)}</span><span>✦ {profile.xp} XP</span></header><div className="pr-progress"><b>Langkah: {state.stepsUsed} / {scenario.minSteps}</b><span>{scenario.stationIds.slice(1).map((id, index) => <i key={id} className={index < state.stepsUsed ? 'done' : ''}/>)}</span></div><div className="pr-route"><b>{current}</b><i>→</i><strong>{shortName(scenario.endStationId)}</strong></div><p className="pr-notice" role="status">{notice}</p><RouteMap scenario={scenario} state={state} selectedService={selectedService} drag={drag} onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerUp} onNodeActivate={activateNode}/>{phase === 'complete' ? <><article className="pr-summary"><span>ROUTE SUMMARY</span><b>{shortName(scenario.startStationId)} <i>→</i> {shortName(scenario.endStationId)}</b><small>{pipeRushSummary(state, elapsed(), scenario).serviceNames.join(' → ')} · {state.stepsUsed} langkah · {scenario.transfers} transfer</small></article><button className="primary cta" onClick={() => onFinish(challenge, true, false, pipeRushSummary(state, elapsed(), scenario))}>Submit Route <b>→</b></button></> : <article className="pr-palette"><span>AVAILABLE LINES</span><div>{scenario.palette.map((line) => <button key={line.serviceId} className={selectedService === line.serviceId ? 'selected' : ''} style={{ '--route': line.color } as CSSProperties} onClick={() => { setSelectedService(line.serviceId); setNotice(`${line.label} dipilih. Tarik dari ${current}.`) }}><i/><b>{line.label}</b></button>)}</div></article>}</section>
+}
+
+function transitHint(stationId: string, scenario: PipeRushScenario) { const next = scenario.stationIds[scenario.stationIds.indexOf(stationId) + 1]; const nextService = next ? transitGraphService(next) : undefined; return nextService && nextService !== transitGraphService(stationId) ? `Ganti ke ${nextService} untuk transfer berikutnya.` : 'Lanjutkan ke stop berikutnya.' }
+function transitGraphService(stationId: string) { return transitGraph.lineById.get(transitGraph.stationById.get(stationId)?.serviceId ?? '')?.name ?? stationName(stationId) }
